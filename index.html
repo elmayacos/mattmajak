@@ -19,6 +19,20 @@
         html {
             scroll-behavior: smooth;
         }
+        .lang-btn {
+            transition: all 0.2s ease-in-out;
+            cursor: pointer;
+        }
+        .lang-btn.active {
+            opacity: 1;
+            transform: scale(1.15);
+        }
+        .lang-btn:not(.active) {
+            opacity: 0.5;
+        }
+        .lang-btn:not(.active):hover {
+            opacity: 0.75;
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-white antialiased">
@@ -28,8 +42,13 @@
         <div class="text-2xl font-bold">
             Matt Majak.
         </div>
-        <nav>
-            <a href="#cta" class="bg-blue-600 text-white px-5 py-3 rounded-lg font-semibold text-sm hover:bg-blue-700 transition duration-300">
+        <nav class="flex items-center space-x-4 md:space-x-6">
+            <div class="flex items-center space-x-3">
+                <button data-lang="pl" class="lang-btn active" title="Polski">🇵🇱</button>
+                <button data-lang="en" class="lang-btn" title="English">🇬🇧</button>
+                <button data-lang="nl" class="lang-btn" title="Nederlands">🇳🇱</button>
+            </div>
+            <a href="#cta" data-lang-key="header.cta" class="bg-blue-600 text-white px-5 py-3 rounded-lg font-semibold text-sm hover:bg-blue-700 transition duration-300 hidden md:inline-block">
                 Umów Audyt Sprzedaży
             </a>
         </nav>
@@ -38,13 +57,13 @@
     <!-- ==== 1. HERO SECTION ==== -->
     <section class="py-24 md:py-32 bg-gradient-to-b from-gray-900 to-gray-800">
         <div class="container mx-auto px-6 text-center max-w-4xl">
-            <h1 class="text-4xl md:text-6xl font-black leading-tight mb-6">
+            <h1 data-lang-key="hero.title" class="text-4xl md:text-6xl font-black leading-tight mb-6">
                 Leady wpadają, ale <span class="text-red-400">umowy nie wyjeżdżają?</span>
             </h1>
-            <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+            <p data-lang-key="hero.subtitle" class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
                 Nazywam się Matt Majak. Łączę <strong>inżynierię sprzedaży</strong> (zarządzanie 100+ osób) z <strong>psychologią (NLP)</strong>, aby zbudować Twój skalowalny i skuteczny dział handlowy.
             </p>
-            <a href="#cta" class="bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105">
+            <a href="#cta" data-lang-key="hero.cta" class="bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105">
                 Umów bezpłatny Audyt Sprzedaży
             </a>
         </div>
@@ -53,14 +72,14 @@
     <!-- ==== 2. DOWÓD SPOŁECZNY (TRUST) ==== -->
     <section class="py-16 bg-gray-800">
         <div class="container mx-auto px-6 text-center">
-            <h3 class="text-lg text-gray-400 font-semibold mb-6 uppercase tracking-wider">
+            <h3 data-lang-key="trust.title" class="text-lg text-gray-400 font-semibold mb-6 uppercase tracking-wider">
                 Doświadczenie zdobyte u liderów rynkowych
             </h3>
             <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-6">
-                <span class="text-gray-500 text-3xl font-bold">T-Mobile</span>
-                <span class="text-gray-500 text-3xl font-bold">Polenergia</span>
-                <span class="text-gray-500 text-3xl font-bold">Liberty Poland</span>
-                <span class="text-gray-500 text-3xl font-bold">Partner Polkomtel</span>
+                <span data-lang-key="trust.logo1" class="text-gray-500 text-3xl font-bold">T-Mobile</span>
+                <span data-lang-key="trust.logo2" class="text-gray-500 text-3xl font-bold">Polenergia</span>
+                <span data-lang-key="trust.logo3" class="text-gray-500 text-3xl font-bold">Liberty Poland</span>
+                <span data-lang-key="trust.logo4" class="text-gray-500 text-3xl font-bold">Partner Polkomtel</span>
             </div>
         </div>
     </section>
@@ -69,10 +88,10 @@
     <section class="py-20">
         <div class="container mx-auto px-6 max-w-4xl">
             <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                <h2 data-lang-key="timeline.title" class="text-4xl md:text-5xl font-bold mb-6">
                     Od Managera 100+ do Stratega High-Ticket
                 </h2>
-                <p class="text-2xl text-blue-400 italic font-semibold max-w-2xl mx-auto">
+                <p data-lang-key="timeline.subtitle" class="text-2xl text-blue-400 italic font-semibold max-w-2xl mx-auto">
                     "Dobrych handlowców się nie znajduje. Dobrych handlowców się buduje."
                 </p>
             </div>
@@ -85,8 +104,8 @@
                 <div class="relative pl-12 md:pl-0 mb-16">
                     <div class="absolute left-0 md:left-1/2 -ml-4 top-1 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center font-bold text-white shadow-lg">1</div>
                     <div class="md:w-1/2 md:pr-12 md:ml-auto md:text-right">
-                        <h3 class="text-2xl font-bold text-blue-400 mb-2">Fundament: Skala i Presja</h3>
-                        <p class="text-lg text-gray-300">
+                        <h3 data-lang-key="timeline.p1.title" class="text-2xl font-bold text-blue-400 mb-2">Fundament: Skala i Presja</h3>
+                        <p data-lang-key="timeline.p1.text" class="text-lg text-gray-300">
                             W wieku 20 lat zarządzałem zespołem <strong>100+ osób w Call Center</strong> (Liberty/Polkomtel). Nauczyłem się, jak budować <strong>płynność operacyjną</strong>, pisać skuteczne skrypty i utrzymywać wyniki pod ekstremalną presją.
                         </p>
                     </div>
@@ -96,8 +115,8 @@
                 <div class="relative pl-12 md:pl-0 mb-16">
                     <div class="absolute left-0 md:left-1/2 -ml-4 top-1 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center font-bold text-white shadow-lg">2</div>
                     <div class="md:w-1/2 md:pl-12">
-                        <h3 class="text-2xl font-bold text-blue-400 mb-2">Psychologia: Inżynieria Człowieka</h3>
-                        <p class="text-lg text-gray-300">
+                        <h3 data-lang-key="timeline.p2.title" class="text-2xl font-bold text-blue-400 mb-2">Psychologia: Inżynieria Człowieka</h3>
+                        <p data-lang-key="timeline.p2.text" class="text-lg text-gray-300">
                             Setki rekrutacji (MLM, zespoły rozproszone) oraz certyfikacje <strong>NLP, DISC i Persolog</strong>. Rozumiem, jak ludzie myślą, kupują i co naprawdę ich motywuje. Potrafię odblokować potencjał w zespole.
                         </p>
                     </div>
@@ -107,8 +126,8 @@
                 <div class="relative pl-12 md:pl-0">
                     <div class="absolute left-0 md:left-1/2 -ml-4 top-1 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center font-bold text-white shadow-lg">3</div>
                     <div class="md:w-1/2 md:pr-12 md:ml-auto md:text-right">
-                        <h3 class="text-2xl font-bold text-blue-400 mb-2">Strategia: Wartość High-Ticket</h3>
-                        <p class="text-lg text-gray-300">
+                        <h3 data-lang-key="timeline.p3.title" class="text-2xl font-bold text-blue-400 mb-2">Strategia: Wartość High-Ticket</h3>
+                        <p data-lang-key="timeline.p3.text" class="text-lg text-gray-300">
                             Doświadczenie w OZE i Telco (Polenergia, T-Mobile) nauczyło mnie <strong>Consultative Selling</strong>. Przeszedłem od sprzedaży transakcyjnej do zamykania <strong>dużych, relacyjnych kontraktów B2B</strong>, opartych na strategii i wizji.
                         </p>
                     </div>
@@ -120,29 +139,67 @@
     <!-- ==== 4. OFERTA (DWA FILARY) ==== -->
     <section class="py-20 bg-gray-800">
         <div class="container mx-auto px-6 max-w-5xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
+            <h2 data-lang-key="offer.title" class="text-3xl md:text-4xl font-bold text-center mb-12">
                 Dwa filary współpracy. Wybierz swój model.
             </h2>
             
             <div class="grid md:grid-cols-2 gap-8">
                 <!-- Oferta 1 -->
                 <div class="bg-gray-900 p-8 rounded-lg border border-blue-500/50 flex flex-col shadow-xl">
-                    <h3 class="text-2xl font-bold text-blue-400 mb-4">"Done-For-You"</h3>
-                    <p class="text-lg font-semibold mb-4">Zewnętrzny High-Ticket Closer</p>
-                    <p class="text-gray-300 mb-6 flex-grow">
+                    <h3 data-lang-key="offer.p1.title" class="text-2xl font-bold text-blue-400 mb-4">"Done-For-You"</h3>
+                    <p data-lang-key="offer.p1.subtitle" class="text-lg font-semibold mb-4">Zewnętrzny High-Ticket Closer</p>
+                    <p data-lang-key="offer.p1.text" class="text-gray-300 mb-6 flex-grow">
                         Przejmuję Twoje najgorętsze lub najtrudniejsze leady B2B. <strong>Osobiście domykam sprzedaż</strong> jako Twój zewnętrzny, elitarny Closer. Ty skupiasz się na biznesie, ja na dostarczaniu przychodu. <strong>Płacisz za rezultat.</strong>
                     </p>
-                    <a href="#cta" class="mt-4 text-blue-400 font-semibold hover:text-blue-300">Chcę domykać więcej &rarr;</a>
+                    
+                    <!-- ==== GEMINI FEATURE 2 START ==== -->
+                    <div class="bg-gray-800 p-4 rounded-lg my-4 border border-blue-900/50">
+                        <p data-lang-key="gemini.p1.title" class="text-sm font-semibold text-blue-300 mb-2">Zobacz demo mojej ekspertyzy:</p>
+                        <label for="objection_input" data-lang-key="gemini.p1.label" class="text-sm text-gray-400">Podaj obiekcję klienta (np. "Za drogo"):</label>
+                        <input type="text" id="objection_input" data-lang-key="gemini.p1.placeholder" class="w-full bg-gray-700 text-white rounded-md p-2 mt-2 text-sm" placeholder="np. 'Muszę się zastanowić'">
+                        <button id="generate_objection_btn" data-lang-key="gemini.p1.button" class="w-full bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold text-sm hover:bg-blue-700 transition duration-300 mt-3">
+                            ✨ Opracuj Reakcję (AI)
+                        </button>
+                        <div id="objection_loader" class="text-center my-3 hidden">
+                            <p data-lang-key="gemini.p1.loader" class="text-sm text-gray-400 animate-pulse">Przeformułowuję problem...</p>
+                        </div>
+                        <div id="objection_result" class="mt-3 hidden">
+                            <p data-lang-key="gemini.p1.result" class="text-sm font-semibold text-gray-300">Propozycja odpowiedzi (re-framing):</p>
+                            <pre id="objection_output" class="text-sm text-gray-300 bg-gray-900 p-3 rounded-md whitespace-pre-wrap font-sans"></pre>
+                        </div>
+                    </div>
+                    <!-- ==== GEMINI FEATURE 2 END ==== -->
+                    
+                    <a href="#cta" data-lang-key="offer.p1.cta" class="mt-4 text-blue-400 font-semibold hover:text-blue-300">Chcę domykać więcej &rarr;</a>
                 </div>
                 
                 <!-- Oferta 2 -->
                 <div class="bg-gray-900 p-8 rounded-lg border border-gray-700 flex flex-col">
-                    <h3 class="text-2xl font-bold text-blue-400 mb-4">"Done-With-You"</h3>
-                    <p class="text-lg font-semibold mb-4">Fractional Sales Manager</p>
-                    <p class="text-gray-300 mb-6 flex-grow">
+                    <h3 data-lang-key="offer.p2.title" class="text-2xl font-bold text-blue-400 mb-4">"Done-With-You"</h3>
+                    <p data-lang-key="offer.p2.subtitle" class="text-lg font-semibold mb-4">Fractional Sales Manager</p>
+                    <p data-lang-key="offer.p2.text" class="text-gray-300 mb-6 flex-grow">
                         Wchodzę do Twojej firmy na 3-6 miesięcy. <strong>Audytuję procesy</strong>. Tworzę nowe skrypty sprzedażowe (z użyciem NLP). <strong>Szkolę Twój zespół</strong> z domykania i budowania autorytetu. Wychodzę, zostawiając maszynę do sprzedaży.
                     </p>
-                    <a href="#cta" class="mt-4 text-blue-400 font-semibold hover:text-blue-300">Chcę zbudować proces &rarr;</a>
+                    
+                    <!-- ==== GEMINI FEATURE START ==== -->
+                    <div class="bg-gray-800 p-4 rounded-lg my-4 border border-blue-900/50">
+                        <p data-lang-key="gemini.p2.title" class="text-sm font-semibold text-blue-300 mb-2">Zobacz demo mojej metody:</p>
+                        <label for="industry_input" data-lang-key="gemini.p2.label" class="text-sm text-gray-400">Podaj swoją branżę (np. Software House):</label>
+                        <input type="text" id="industry_input" data-lang-key="gemini.p2.placeholder" class="w-full bg-gray-700 text-white rounded-md p-2 mt-2 text-sm" placeholder="np. Software House B2B">
+                        <button id="generate_script_btn" data-lang-key="gemini.p2.button" class="w-full bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold text-sm hover:bg-blue-700 transition duration-300 mt-3">
+                            ✨ Wygeneruj Otwarcie Skryptu (AI)
+                        </button>
+                        <div id="script_loader" class="text-center my-3 hidden">
+                            <p data-lang-key="gemini.p2.loader" class="text-sm text-gray-400 animate-pulse">Analizuję psychologię klienta...</p>
+                        </div>
+                        <div id="script_result" class="mt-3 hidden">
+                            <p data-lang-key="gemini.p2.result" class="text-sm font-semibold text-gray-300">Oto propozycja otwarcia:</p>
+                            <pre id="script_output" class="text-sm text-gray-300 bg-gray-900 p-3 rounded-md whitespace-pre-wrap font-sans"></pre>
+                        </div>
+                    </div>
+                    <!-- ==== GEMINI FEATURE END ==== -->
+                    
+                    <a href="#cta" data-lang-key="offer.p2.cta" class="mt-4 text-blue-400 font-semibold hover:text-blue-300">Chcę zbudować pełny proces &rarr;</a>
                 </div>
             </div>
         </div>
@@ -151,13 +208,32 @@
     <!-- ==== 5. FOOTER + FINAL CTA ==== -->
     <section id="cta" class="py-24 bg-gradient-to-t from-gray-900 to-gray-800">
         <div class="container mx-auto px-6 text-center max-w-3xl">
-            <h2 class="text-3xl md:text-5xl font-black leading-tight mb-6">
+            <h2 data-lang-key="cta.title" class="text-3xl md:text-5xl font-black leading-tight mb-6">
                 Wiesz, że tracisz pieniądze. Czas to policzyć.
             </h2>
-            <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+            <p data-lang-key="cta.subtitle" class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
                 Umów się na <strong>bezpłatny, 30-minutowy Audyt Sprzedaży</strong>. Przeanalizuję Twój obecny proces i pokażę Ci 3 obszary, w których możesz natychmiast zwiększyć konwersję.
             </p>
-            <a href="httpsE://calendly.com/twoj-link" target="_blank" class="bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105">
+            
+            <!-- ==== GEMINI FEATURE 3 START ==== -->
+            <div class="bg-gray-800 p-6 rounded-lg my-8 max-w-xl mx-auto border border-blue-900/50">
+                <p data-lang-key="gemini.p3.title" class="text-sm font-semibold text-blue-300 mb-2">Chcesz zobaczyć, jak myślę?</p>
+                <label for="problem_input" data-lang-key="gemini.p3.label" class="text-sm text-gray-400">Opisz swój największy problem sprzedażowy (1 zdanie):</label>
+                <textarea id="problem_input" data-lang-key="gemini.p3.placeholder" class="w-full bg-gray-700 text-white rounded-md p-2 mt-2 text-sm h-20" placeholder="np. 'Mój zespół boi się dzwonić' lub 'Klienci mówią, że jest za drogo'"></textarea>
+                <button id="analyze_problem_btn" data-lang-key="gemini.p3.button" class="w-full bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold text-sm hover:bg-blue-700 transition duration-300 mt-3">
+                    ✨ Zdiagnozuj Mój Problem (AI)
+                </button>
+                <div id="problem_loader" class="text-center my-3 hidden">
+                    <p data-lang-key="gemini.p3.loader" class="text-sm text-gray-400 animate-pulse">Analizuję... Daj mi sekundę...</p>
+                </div>
+                <div id="problem_result" class="mt-3 hidden">
+                    <p data-lang-key="gemini.p3.result" class="text-sm font-semibold text-gray-300">Wstępna diagnoza i rekomendacja:</p>
+                    <pre id="problem_output" class="text-sm text-gray-300 bg-gray-900 p-3 rounded-md whitespace-pre-wrap font-sans"></pre>
+                </div>
+            </div>
+            <!-- ==== GEMINI FEATURE 3 END ==== -->
+            
+            <a href="https://calendly.com/twoj-link" target="_blank" data-lang-key="cta.button" class="bg-blue-600 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-700 transition duration-300 transform hover:scale-105">
                 Zarezerwuj Audyt (Link do Kalendarza)
             </a>
         </div>
@@ -166,12 +242,468 @@
     <!-- ==== STOPKA ==== -->
     <footer class="py-10 bg-gray-900 border-t border-gray-700">
         <div class="container mx-auto px-6 text-center text-gray-500">
-            <p>&copy; 2024 Matt Majak. Wszelkie prawa zastrzeżone.</p>
-            <p class="text-sm mt-2">
+            <p data-lang-key="footer.copy">&copy; 2024 Matt Majak. Wszelkie prawa zastrzeżone.</p>
+            <p data-lang-key="footer.location" class="text-sm mt-2">
                 *Działam z Holandii, sprzedaję dla Polski.*
             </p>
         </div>
     </footer>
 
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        let currentLang = 'pl';
+        const langButtons = document.querySelectorAll('.lang-btn');
+
+        const translations = {
+            'pl': {
+                'header.cta': 'Umów Audyt Sprzedaży',
+                'hero.title': 'Leady wpadają, ale <span class="text-red-400">umowy nie wyjeżdżają?</span>',
+                'hero.subtitle': 'Nazywam się Matt Majak. Łączę <strong>inżynierię sprzedaży</strong> (zarządzanie 100+ osób) z <strong>psychologią (NLP)</strong>, aby zbudować Twój skalowalny i skuteczny dział handlowy.',
+                'hero.cta': 'Umów bezpłatny Audyt Sprzedaży',
+                'trust.title': 'Doświadczenie zdobyte u liderów rynkowych',
+                'trust.logo1': 'T-Mobile',
+                'trust.logo2': 'Polenergia',
+                'trust.logo3': 'Liberty Poland',
+                'trust.logo4': 'Partner Polkomtel',
+                'timeline.title': 'Od Managera 100+ do Stratega High-Ticket',
+                'timeline.subtitle': '"Dobrych handlowców się nie znajduje. Dobrych handlowców się buduje."',
+                'timeline.p1.title': 'Fundament: Skala i Presja',
+                'timeline.p1.text': 'W wieku 20 lat zarządzałem zespołem <strong>100+ osób w Call Center</strong> (Liberty/Polkomtel). Nauczyłem się, jak budować <strong>płynność operacyjną</strong>, pisać skuteczne skrypty i utrzymywać wyniki pod ekstremalną presją.',
+                'timeline.p2.title': 'Psychologia: Inżynieria Człowieka',
+                'timeline.p2.text': 'Setki rekrutacji (MLM, zespoły rozproszone) oraz certyfikacje <strong>NLP, DISC i Persolog</strong>. Rozumiem, jak ludzie myślą, kupują i co naprawdę ich motywuje. Potrafię odblokować potencjał w zespole.',
+                'timeline.p3.title': 'Strategia: Wartość High-Ticket',
+                'timeline.p3.text': 'Doświadczenie w OZE i Telco (Polenergia, T-Mobile) nauczyło mnie <strong>Consultative Selling</strong>. Przeszedłem od sprzedaży transakcyjnej do zamykania <strong>dużych, relacyjnych kontraktów B2B</strong>, opartych na strategii i wizji.',
+                'offer.title': 'Dwa filary współpracy. Wybierz swój model.',
+                'offer.p1.title': '"Done-For-You"',
+                'offer.p1.subtitle': 'Zewnętrzny High-Ticket Closer',
+                'offer.p1.text': 'Przejmuję Twoje najgorętsze lub najtrudniejsze leady B2B. <strong>Osobiście domykam sprzedaż</strong> jako Twój zewnętrzny, elitarny Closer. Ty skupiasz się na biznesie, ja na dostarczaniu przychodu. <strong>Płacisz za rezultat.</strong>',
+                'offer.p1.cta': 'Chcę domykać więcej &rarr;',
+                'offer.p2.title': '"Done-With-You"',
+                'offer.p2.subtitle': 'Fractional Sales Manager',
+                'offer.p2.text': 'Wchodzę do Twojej firmy na 3-6 miesięcy. <strong>Audytuję procesy</strong>. Tworzę nowe skrypty sprzedażowe (z użyciem NLP). <strong>Szkolę Twój zespół</strong> z domykania i budowania autorytetu. Wychodzę, zostawiając maszynę do sprzedaży.',
+                'offer.p2.cta': 'Chcę zbudować pełny proces &rarr;',
+                'cta.title': 'Wiesz, że tracisz pieniądze. Czas to policzyć.',
+                'cta.subtitle': 'Umów się na <strong>bezpłatny, 30-minutowy Audyt Sprzedaży</strong>. Przeanalizuję Twój obecny proces i pokażę Ci 3 obszary, w których możesz natychmiast zwiększyć konwersję.',
+                'cta.button': 'Zarezerwuj Audyt (Link do Kalendarza)',
+                'footer.copy': '&copy; 2024 Matt Majak. Wszelkie prawa zastrzeżone.',
+                'footer.location': '*Działam z Holandii, sprzedaję dla Polski.*',
+                'gemini.p1.title': 'Zobacz demo mojej ekspertyzy:',
+                'gemini.p1.label': 'Podaj obiekcję klienta (np. "Za drogo"):',
+                'gemini.p1.placeholder': 'np. \'Muszę się zastanowić\'',
+                'gemini.p1.button': '✨ Opracuj Reakcję (AI)',
+                'gemini.p1.loader': 'Przeformułowuję problem...',
+                'gemini.p1.result': 'Propozycja odpowiedzi (re-framing):',
+                'gemini.p2.title': 'Zobacz demo mojej metody:',
+                'gemini.p2.label': 'Podaj swoją branżę (np. Software House):',
+                'gemini.p2.placeholder': 'np. Software House B2B',
+                'gemini.p2.button': '✨ Wygeneruj Otwarcie Skryptu (AI)',
+                'gemini.p2.loader': 'Analizuję psychologię klienta...',
+                'gemini.p2.result': 'Oto propozycja otwarcia:',
+                'gemini.p3.title': 'Chcesz zobaczyć, jak myślę?',
+                'gemini.p3.label': 'Opisz swój największy problem sprzedażowy (1 zdanie):',
+                'gemini.p3.placeholder': 'np. \'Mój zespół boi się dzwonić\' lub \'Klienci mówią, że jest za drogo\'',
+                'gemini.p3.button': '✨ Zdiagnozuj Mój Problem (AI)',
+                'gemini.p3.loader': 'Analizuję... Daj mi sekundę...',
+                'gemini.p3.result': 'Wstępna diagnoza i rekomendacja:',
+                'gemini.p1.system': 'Jesteś światowej klasy Closerem High-Ticket, Mattem Majakiem. Specjalizujesz się w psychologii (NLP, DISC) i przełamywaniu obiekcji. Twój ton jest spokojny, autorytatywny i empatyczny. Nigdy nie \'atakujesz\' klienta, ale \'re-framujesz\' (przeformułowujesz) jego obiekcję, aby pokazać nową perspektywę i utrzymać kontrolę nad rozmową. Generujesz krótką, 2-3 zdaniową odpowiedź na obiekcję klienta. Mów po polsku.',
+                'gemini.p1.user': 'Obiekcja klienta to: "{objection}". Stwórz dla mnie mocną, 2-3 zdaniową odpowiedź, która re-framuje ten problem, opierając się na zasadach NLP.',
+                'gemini.p2.system': 'Jesteś światowej klasy strategiem sprzedaży B2B, Mattem Majakiem. Specjalizujesz się w psychologii (NLP, DISC). Twój ton jest autorytatywny, ale empatyczny. Generujesz krótkie, 2-3 zdaniowe skrypty otwierające rozmowę (cold call/email) dla podanej branży, skupiając się na budowaniu natychmiastowego zaufania i \'pattern interrupt\' (przełamaniu wzorca). Mów po polsku.',
+                'gemini.p2.user': 'Moja branża to: {industry}. Stwórz dla mnie mocny, 2-3 zdaniowy skrypt otwierający rozmowę z potencjalnym klientem.',
+                'gemini.p3.system': 'Jesteś Matt Majak, światowej klasy B2B Sales Strategist & Closer. Użytkownik podaje ci swój największy problem sprzedażowy. Twoim zadaniem jest w 1-2 zdaniach zdiagnozować prawdopodobną przyczynę (opierając się na psychologii, procesie lub mentalności) i zakończyć mocnym, 1-zdaniowym wezwaniem do akcji, aby omówić to na audycie. Twój ton jest autorytatywny, wnikliwy i budzi zaufanie. Mów po polsku.',
+                'gemini.p3.user': 'Mój największy problem sprzedażowy to: "{problem}". Zdiagnozuj to i daj rekomendację.'
+            },
+            'en': {
+                'header.cta': 'Book Sales Audit',
+                'hero.title': 'Leads are coming in, but <span class="text-red-400">deals aren\'t closing?</span>',
+                'hero.subtitle': 'I\'m Matt Majak. I merge <strong>sales engineering</strong> (managing 100+ people) with <strong>psychology (NLP)</strong> to build your scalable and effective sales department.',
+                'hero.cta': 'Book a Free Sales Audit',
+                'trust.title': 'Experience Gained from Market Leaders',
+                'trust.logo1': 'T-Mobile',
+                'trust.logo2': 'Polenergia',
+                'trust.logo3': 'Liberty Poland',
+                'trust.logo4': 'Partner Polkomtel',
+                'timeline.title': 'From 100+ Manager to High-Ticket Strategist',
+                'timeline.subtitle': '"Great salespeople aren\'t found. Great salespeople are built."',
+                'timeline.p1.title': 'Foundation: Scale & Pressure',
+                'timeline.p1.text': 'At 20, I managed a <strong>100+ person Call Center</strong> team (Liberty/Polkomtel). I learned how to build <strong>operational fluency</strong>, write effective scripts, and maintain results under extreme pressure.',
+                'timeline.p2.title': 'Psychology: Human Engineering',
+                'timeline.p2.text': 'Hundreds of recruitments (MLM, Distributed Teams) and certifications in <strong>NLP, DISC & Persolog</strong>. I understand how people think, buy, and what truly motivates them. I can unlock potential in a team.',
+                'timeline.p3.title': 'Strategy: High-Ticket Value',
+                'timeline.p3.text': 'Experience in Renewables & Telco (Polenergia, T-Mobile) taught me <strong>Consultative Selling</strong>. I moved from transactional sales to closing <strong>large, relational B2B contracts</strong> based on strategy and vision.',
+                'offer.title': 'Two Pillars of Cooperation. Choose Your Model.',
+                'offer.p1.title': '"Done-For-You"',
+                'offer.p1.subtitle': 'External High-Ticket Closer',
+                'offer.p1.text': 'I take over your hottest or most difficult B2B leads. <strong>I personally close the sale</strong> as your external, elite Closer. You focus on the business; I focus on delivering revenue. <strong>You pay for results.</strong>',
+                'offer.p1.cta': 'I want to close more &rarr;',
+                'offer.p2.title': '"Done-With-You"',
+                'offer.p2.subtitle': 'Fractional Sales Manager',
+                'offer.p2.text': 'I join your company for 3-6 months. <strong>I audit processes</strong>. I create new sales scripts (using NLP). <strong>I train your team</strong> in closing and building authority. I leave, leaving behind a sales machine.',
+                'offer.p2.cta': 'I want to build a process &rarr;',
+                'cta.title': 'You know you\'re losing money. It\'s time to count it.',
+                'cta.subtitle': 'Book a <strong>free, 30-minute Sales Audit</strong>. I will analyze your current process and show you 3 areas where you can immediately increase conversion.',
+                'cta.button': 'Book Audit (Calendar Link)',
+                'footer.copy': '&copy; 2024 Matt Majak. All rights reserved.',
+                'footer.location': '*Working from the Netherlands, selling for Poland.*',
+                'gemini.p1.title': 'See a demo of my expertise:',
+                'gemini.p1.label': 'Enter a customer objection (e.g., "Too expensive"):',
+                'gemini.p1.placeholder': 'e.g., \'I need to think about it\'',
+                'gemini.p1.button': '✨ Handle Objection (AI)',
+                'gemini.p1.loader': 'Reframing the problem...',
+                'gemini.p1.result': 'Proposed response (re-framing):',
+                'gemini.p2.title': 'See a demo of my method:',
+                'gemini.p2.label': 'Enter your industry (e.g., Software House):',
+                'gemini.p2.placeholder': 'e.g., B2B Software House',
+                'gemini.p2.button': '✨ Generate Opening Script (AI)',
+                'gemini.p2.loader': 'Analyzing customer psychology...',
+                'gemini.p2.result': 'Here is a proposed opening:',
+                'gemini.p3.title': 'Want to see how I think?',
+                'gemini.p3.label': 'Describe your biggest sales problem (1 sentence):',
+                'gemini.p3.placeholder': 'e.g., \'My team is afraid to cold call\' or \'Clients say we are too expensive\'',
+                'gemini.p3.button': '✨ Diagnose My Problem (AI)',
+                'gemini.p3.loader': 'Analyzing... Give me a second...',
+                'gemini.p3.result': 'Initial diagnosis and recommendation:',
+                'gemini.p1.system': 'You are a world-class High-Ticket Closer, Matt Majak. You specialize in psychology (NLP, DISC) and overcoming objections. Your tone is calm, authoritative, and empathetic. You never \'attack\' the client but \'re-frame\' their objection to show a new perspective and maintain control of the conversation. Generate a short, 2-3 sentence response to the client\'s objection. Speak in English.',
+                'gemini.p1.user': 'The client\'s objection is: "{objection}". Create a powerful, 2-3 sentence response for me that re-frames this problem based on NLP principles.',
+                'gemini.p2.system': 'You are a world-class B2B sales strategist, Matt Majak. You specialize in psychology (NLP, DISC). Your tone is authoritative yet empathetic. You generate short, 2-3 sentence opening scripts (cold call/email) for the given industry, focusing on building instant trust and a \'pattern interrupt\'. Speak in English.',
+                'gemini.p2.user': 'My industry is: {industry}. Create a strong, 2-3 sentence opening script for a potential client for me.',
+                'gemini.p3.system': 'You are Matt Majak, a world-class B2B Sales Strategist & Closer. The user is telling you their biggest sales problem. Your task is to diagnose the likely cause (based on psychology, process, or mindset) in 1-2 sentences and end with a strong, 1-sentence call to action to discuss this in an audit. Your tone is authoritative, insightful, and builds trust. Speak in English.',
+                'gemini.p3.user': 'My biggest sales problem is: "{problem}". Diagnose this and give a recommendation.'
+            },
+            'nl': {
+                'header.cta': 'Boek Sales Audit',
+                'hero.title': 'Leads komen binnen, maar <span class="text-red-400">deals worden niet gesloten?</span>',
+                'hero.subtitle': 'Ik ben Matt Majak. Ik combineer <strong>sales engineering</strong> (management van 100+ mensen) met <strong>psychologie (NLP)</strong> om uw schaalbare en effectieve salesafdeling te bouwen.',
+                'hero.cta': 'Boek een Gratis Sales Audit',
+                'trust.title': 'Ervaring opgedaan bij marktleiders',
+                'trust.logo1': 'T-Mobile',
+                'trust.logo2': 'Polenergia',
+                'trust.logo3': 'Liberty Poland',
+                'trust.logo4': 'Partner Polkomtel',
+                'timeline.title': 'Van 100+ Manager tot High-Ticket Strateeg',
+                'timeline.subtitle': '"Goede verkopers vind je niet. Goede verkopers bouw je."',
+                'timeline.p1.title': 'Basis: Schaal & Druk',
+                'timeline.p1.text': 'Op mijn 20e gaf ik leiding aan een <strong>100+ persoon Call Center</strong> team (Liberty/Polkomtel). Ik leerde <strong>operationele processen</strong> te bouwen, effectieve scripts te schrijven en resultaten te behouden onder extreme druk.',
+                'timeline.p2.title': 'Psychologie: Human Engineering',
+                'timeline.p2.text': 'Honderden wervingen (MLM, externe teams) en certificeringen in <strong>NLP, DISC & Persolog</strong>. Ik begrijp hoe mensen denken, kopen en wat hen echt motiveert. Ik kan het potentieel in een team ontsluiten.',
+                'timeline.p3.title': 'Strategie: High-Ticket Waarde',
+                'timeline.p3.text': 'Ervaring in OZE & Telco (Polenergia, T-Mobile) leerde mij <strong>Consultative Selling</strong>. Ik stapte over van transactionele verkoop naar het sluiten van <strong>grote, relationele B2B-contracten</strong> op basis van strategie en visie.',
+                'offer.title': 'Twee Pijlers van Samenwerking. Kies uw Model.',
+                'offer.p1.title': '"Done-For-You"',
+                'offer.p1.subtitle': 'Externe High-Ticket Closer',
+                'offer.p1.text': 'Ik neem uw warmste of moeilijkste B2B-leads over. <strong>Ik sluit persoonlijk de verkoop</strong> als uw externe, elite Closer. U focust op de business; ik focus op het leveren van omzet. <strong>U betaalt voor resultaat.</strong>',
+                'offer.p1.cta': 'Ik wil meer sluiten &rarr;',
+                'offer.p2.title': '"Done-With-You"',
+                'offer.p2.subtitle': 'Fractional Sales Manager',
+                'offer.p2.text': 'Ik sluit me 3-6 maanden aan bij uw bedrijf. <strong>Ik auditeer processen</strong>. Ik creëer nieuwe verkoopscripts (met NLP). <strong>Ik train uw team</strong> in het sluiten van deals en het opbouwen van autoriteit. Ik vertrek en laat een verkoopmachine achter.',
+                'offer.p2.cta': 'Ik wil een proces bouwen &rarr;',
+                'cta.title': 'U weet dat u geld verliest. Tijd om het te tellen.',
+                'cta.subtitle': 'Boek een <strong>gratis Sales Audit van 30 minuten</strong>. Ik analyseer uw huidige proces en toon u 3 gebieden waar u direct de conversie kunt verhogen.',
+                'cta.button': 'Boek Audit (Agenda Link)',
+                'footer.copy': '&copy; 2024 Matt Majak. Alle rechten voorbehouden.',
+                'footer.location': '*Werkend vanuit Nederland, verkopend voor Polen.*',
+                'gemini.p1.title': 'Bekijk een demo van mijn expertise:',
+                'gemini.p1.label': 'Voer een bezwaar van een klant in (bijv. "Te duur"):',
+                'gemini.p1.placeholder': 'bijv. \'Ik moet erover nadenken\'',
+                'gemini.p1.button': '✨ Behandel Bezwaar (AI)',
+                'gemini.p1.loader': 'Het probleem herkaderen...',
+                'gemini.p1.result': 'Voorgesteld antwoord (re-framing):',
+                'gemini.p2.title': 'Bekijk een demo van mijn methode:',
+                'gemini.p2.label': 'Voer uw branche in (bijv. Software House):',
+                'gemini.p2.placeholder': 'bijv. B2B Software Huis',
+                'gemini.p2.button': '✨ Genereer Openingsscript (AI)',
+                'gemini.p2.loader': 'Klantpsychologie analyseren...',
+                'gemini.p2.result': 'Hier is een voorgestelde opening:',
+                'gemini.p3.title': 'Wilt u zien hoe ik denk?',
+                'gemini.p3.label': 'Beschrijf uw grootste verkoopprobleem (1 zin):',
+                'gemini.p3.placeholder': 'bijv. \'Mijn team is bang om koud te bellen\' of \'Klanten zeggen dat we te duur zijn\'',
+                'gemini.p3.button': '✨ Diagnoseer Mijn Probleem (AI)',
+                'gemini.p3.loader': 'Analyseren... Een moment geduld...',
+                'gemini.p3.result': 'Eerste diagnose en aanbeveling:',
+                'gemini.p1.system': 'U bent een High-Ticket Closer van wereldklasse, Matt Majak. U bent gespecialiseerd in psychologie (NLP, DISC) en het overwinnen van bezwaren. Uw toon is kalm, gezaghebbend en empathisch. U \'valt\' de klant nooit aan, maar \'herkadert\' (re-framet) hun bezwaar om een nieuw perspectief te tonen en de controle over het gesprek te behouden. Genereer een kort antwoord van 2-3 zinnen op het bezwaar van de klant. Spreek Nederlands.',
+                'gemini.p1.user': 'Het bezwaar van de klant is: "{objection}". Creëer voor mij een krachtig antwoord van 2-3 zinnen dat dit probleem herkadert, gebaseerd op NLP-principes.',
+                'gemini.p2.system': 'U bent een B2B-salesstrateeg van wereldklasse, Matt Majak. U bent gespecialiseerd in psychologie (NLP, DISC). Uw toon is gezaghebbend en toch empathisch. U genereert korte openingsscripts van 2-3 zinnen (cold call/email) voor de opgegeven branche, gericht op het opbouwen van direct vertrouwen en een \'pattern interrupt\'. Spreek Nederlands.',
+                'gemini.p2.user': 'Mijn branche is: {industry}. Creëer voor mij een sterk openingsscript van 2-3 zinnen voor een potentiële klant.',
+                'gemini.p3.system': 'U bent Matt Majak, een B2B Sales Strateeg & Closer van wereldklasse. De gebruiker vertelt u hun grootste verkoopprobleem. Uw taak is om in 1-2 zinnen de waarschijnlijke oorzaak te diagnosticeren (gebaseerd op psychologie, proces of mentaliteit) en te eindigen met een sterke call-to-action van 1 zin om dit in een audit te bespreken. Uw toon is gezaghebbend, inzichtelijk en wekt vertrouwen. Spreek Nederlands.',
+                'gemini.p3.user': 'Mijn grootste verkoopprobleem is: "{problem}". Diagnoseer dit en geef een aanbeveling.'
+            }
+        };
+
+        function setLanguage(lang) {
+            if (!translations[lang]) return;
+            
+            currentLang = lang;
+            document.documentElement.lang = lang;
+
+            // Ustawia klasę 'active' na przyciskach
+            langButtons.forEach(btn => {
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            const elements = document.querySelectorAll('[data-lang-key]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-lang-key');
+                const translation = getTranslation(key, lang);
+
+                if (translation) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        if (el.type === 'placeholder') {
+                             el.placeholder = translation;
+                        } else {
+                            el.placeholder = translation;
+                        }
+                    } else if (el.hasAttribute('data-lang-key-placeholder')) { // Specjalne dla placeholderów
+                        el.placeholder = translation;
+                    } else {
+                        el.innerHTML = translation; // Używamy innerHTML, aby zachować tagi <strong>
+                    }
+                }
+            });
+
+            // Aktualizuje placeholdery ręcznie (pewniejsza metoda)
+            document.getElementById('objection_input').placeholder = translations[lang]['gemini.p1.placeholder'];
+            document.getElementById('industry_input').placeholder = translations[lang]['gemini.p2.placeholder'];
+            document.getElementById('problem_input').placeholder = translations[lang]['gemini.p3.placeholder'];
+        }
+
+        function getTranslation(key, lang) {
+            const keys = key.split('.');
+            let result = translations[lang];
+            for (const k of keys) {
+                result = result[k];
+                if (!result) return null;
+            }
+            return result;
+        }
+
+        langButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                setLanguage(btn.dataset.lang);
+            });
+        });
+
+        // Ustawienie języka na starcie (domyślnie polski)
+        setLanguage('pl');
+
+
+        // Selektory dla generatora skryptów
+        const generateBtn = document.getElementById('generate_script_btn');
+        const industryInput = document.getElementById('industry_input');
+        const loader = document.getElementById('script_loader');
+        const resultView = document.getElementById('script_result');
+        const outputPre = document.getElementById('script_output');
+
+        // Selektory dla generatora obiekcji
+        const generateObjectionBtn = document.getElementById('generate_objection_btn');
+        const objectionInput = document.getElementById('objection_input');
+        const objectionLoader = document.getElementById('objection_loader');
+        const objectionResultView = document.getElementById('objection_result');
+        const objectionOutputPre = document.getElementById('objection_output');
+
+        // Selektory dla analizatora problemu
+        const analyzeProblemBtn = document.getElementById('analyze_problem_btn');
+        const problemInput = document.getElementById('problem_input');
+        const problemLoader = document.getElementById('problem_loader');
+        const problemResultView = document.getElementById('problem_result');
+        const problemOutputPre = document.getElementById('problem_output');
+
+        if(generateBtn) {
+            generateBtn.addEventListener('click', handleGenerateScript);
+        }
+        
+        if(generateObjectionBtn) {
+            generateObjectionBtn.addEventListener('click', handleGenerateObjection);
+        }
+
+        if(analyzeProblemBtn) {
+            analyzeProblemBtn.addEventListener('click', handleAnalyzeProblem);
+        }
+
+        async function handleGenerateScript() {
+            const industry = industryInput.value.trim();
+            if (!industry) {
+                outputPre.textContent = "Proszę wpisać branżę, aby AI mogło zadziałać."; // To też można by przenieść do translations
+                resultView.classList.remove('hidden');
+                return;
+            }
+
+            loader.classList.remove('hidden');
+            resultView.classList.add('hidden');
+            outputPre.textContent = "";
+
+            const systemPrompt = translations[currentLang]['gemini.p2.system'];
+            const userQuery = translations[currentLang]['gemini.p2.user'].replace('{industry}', industry);
+
+            const apiKey = ""; // Klucz API zostanie dostarczony przez środowisko
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: {
+                    parts: [{ text: systemPrompt }]
+                },
+            };
+
+            try {
+                const response = await fetchWithBackoff(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const result = await response.json();
+                const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
+
+                if (text) {
+                    outputPre.textContent = text;
+                    resultView.classList.remove('hidden');
+                } else {
+                    throw new Error("Nie otrzymano poprawnej odpowiedzi od AI.");
+                }
+
+            } catch (error) {
+                console.error("Błąd podczas generowania skryptu:", error);
+                outputPre.textContent = "Wystąpił błąd podczas generowania. Spróbuj ponownie później.";
+                resultView.classList.remove('hidden');
+            } finally {
+                loader.classList.add('hidden');
+            }
+        }
+
+        async function handleGenerateObjection() {
+            const objection = objectionInput.value.trim();
+            if (!objection) {
+                objectionOutputPre.textContent = "Proszę wpisać obiekcję klienta, aby AI mogło zadziałać.";
+                objectionResultView.classList.remove('hidden');
+                return;
+            }
+
+            objectionLoader.classList.remove('hidden');
+            objectionResultView.classList.add('hidden');
+            objectionOutputPre.textContent = "";
+
+            const systemPrompt = translations[currentLang]['gemini.p1.system'];
+            const userQuery = translations[currentLang]['gemini.p1.user'].replace('{objection}', objection);
+            
+            const apiKey = ""; // Klucz API zostanie dostarczony przez środowisko
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: {
+                    parts: [{ text: systemPrompt }]
+                },
+            };
+
+            try {
+                const response = await fetchWithBackoff(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const result = await response.json();
+                const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
+
+                if (text) {
+                    objectionOutputPre.textContent = text;
+                    objectionResultView.classList.remove('hidden');
+                } else {
+                    throw new Error("Nie otrzymano poprawnej odpowiedzi od AI.");
+                }
+
+            } catch (error) {
+                console.error("Błąd podczas generowania reakcji na obiekcję:", error);
+                objectionOutputPre.textContent = "Wystąpił błąd podczas generowania. Spróbuj ponownie później.";
+                objectionResultView.classList.remove('hidden');
+            } finally {
+                objectionLoader.classList.add('hidden');
+            }
+        }
+
+        async function handleAnalyzeProblem() {
+            const problem = problemInput.value.trim();
+            if (!problem) {
+                problemOutputPre.textContent = "Proszę opisać swój problem, abym mógł go przeanalizować.";
+                problemResultView.classList.remove('hidden');
+                return;
+            }
+
+            problemLoader.classList.remove('hidden');
+            problemResultView.classList.add('hidden');
+            problemOutputPre.textContent = "";
+
+            const systemPrompt = translations[currentLang]['gemini.p3.system'];
+            const userQuery = translations[currentLang]['gemini.p3.user'].replace('{problem}', problem);
+
+            const apiKey = ""; // Klucz API zostanie dostarczony przez środowisko
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: {
+                    parts: [{ text: systemPrompt }]
+                },
+            };
+
+            try {
+                const response = await fetchWithBackoff(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const result = await response.json();
+                const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
+
+                if (text) {
+                    problemOutputPre.textContent = text;
+                    problemResultView.classList.remove('hidden');
+                } else {
+                    throw new Error("Nie otrzymano poprawnej odpowiedzi od AI.");
+                }
+
+            } catch (error) {
+                console.error("Błąd podczas analizy problemu:", error);
+                problemOutputPre.textContent = "Wystąpił błąd podczas generowania. Spróbuj ponownie później.";
+                problemResultView.classList.remove('hidden');
+            } finally {
+                problemLoader.classList.add('hidden');
+            }
+        }
+
+        async function fetchWithBackoff(url, options, retries = 3, delay = 1000) {
+            for (let i = 0; i < retries; i++) {
+                try {
+                    const response = await fetch(url, options);
+                    if (response.status === 429 || response.status >= 500) { // Throttling lub błąd serwera
+                        throw new Error(`Retryable error: ${response.status}`);
+                    }
+                    return response;
+                } catch (error) {
+                    if (i === retries - 1) throw error; // Ostatnia próba nie powiodła się
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    delay *= 2; // Exponential backoff
+                }
+            }
+        }
+    });
+    </script>
 </body>
 </html>
