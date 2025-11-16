@@ -114,7 +114,7 @@
                 <!-- Punkt 2 -->
                 <div class="relative pl-12 md:pl-0 mb-16">
                     <div class="absolute left-0 md:left-1/2 -ml-4 top-1 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center font-bold text-white shadow-lg">2</div>
-                    <div class="md:w-1/2 md:pl-12">
+                    <div class="md:w/2 md:pl-12">
                         <h3 data-lang-key="timeline.p2.title" class="text-2xl font-bold text-blue-400 mb-2">Psychologia: Inżynieria Człowieka</h3>
                         <p data-lang-key="timeline.p2.text" class="text-lg text-gray-300">
                             Setki rekrutacji (MLM, zespoły rozproszone) oraz certyfikacje <strong>NLP, DISC i Persolog</strong>. Rozumiem, jak ludzie myślą, kupują i co naprawdę ich motywuje. Potrafię odblokować potencjał w zespole.
@@ -311,7 +311,8 @@
                 'gemini.p2.system': 'Jesteś światowej klasy strategiem sprzedaży B2B, Mattem Majakiem. Specjalizujesz się w psychologii (NLP, DISC). Twój ton jest autorytatywny, ale empatyczny. Generujesz krótkie, 2-3 zdaniowe skrypty otwierające rozmowę (cold call/email) dla podanej branży, skupiając się na budowaniu natychmiastowego zaufania i \'pattern interrupt\' (przełamaniu wzorca). Mów po polsku.',
                 'gemini.p2.user': 'Moja branża to: {industry}. Stwórz dla mnie mocny, 2-3 zdaniowy skrypt otwierający rozmowę z potencjalnym klientem.',
                 'gemini.p3.system': 'Jesteś Matt Majak, światowej klasy B2B Sales Strategist & Closer. Użytkownik podaje ci swój największy problem sprzedażowy. Twoim zadaniem jest w 1-2 zdaniach zdiagnozować prawdopodobną przyczynę (opierając się na psychologii, procesie lub mentalności) i zakończyć mocnym, 1-zdaniowym wezwaniem do akcji, aby omówić to na audycie. Twój ton jest autorytatywny, wnikliwy i budzi zaufanie. Mów po polsku.',
-                'gemini.p3.user': 'Mój największy problem sprzedażowy to: "{problem}". Zdiagnozuj to i daj rekomendację.'
+                'gemini.p3.user': 'Mój największy problem sprzedażowy to: "{problem}". Zdiagnozuj to i daj rekomendację.',
+                'gemini.error.noKey': 'Funkcja demo AI jest wyłączona. Pełne demo dostępne podczas audytu.'
             },
             'en': {
                 'header.cta': 'Book Sales Audit',
@@ -368,7 +369,8 @@
                 'gemini.p2.system': 'You are a world-class B2B sales strategist, Matt Majak. You specialize in psychology (NLP, DISC). Your tone is authoritative yet empathetic. You generate short, 2-3 sentence opening scripts (cold call/email) for the given industry, focusing on building instant trust and a \'pattern interrupt\'. Speak in English.',
                 'gemini.p2.user': 'My industry is: {industry}. Create a strong, 2-3 sentence opening script for a potential client for me.',
                 'gemini.p3.system': 'You are Matt Majak, a world-class B2B Sales Strategist & Closer. The user is telling you their biggest sales problem. Your task is to diagnose the likely cause (based on psychology, process, or mindset) in 1-2 sentences and end with a strong, 1-sentence call to action to discuss this in an audit. Your tone is authoritative, insightful, and builds trust. Speak in English.',
-                'gemini.p3.user': 'My biggest sales problem is: "{problem}". Diagnose this and give a recommendation.'
+                'gemini.p3.user': 'My biggest sales problem is: "{problem}". Diagnose this and give a recommendation.',
+                'gemini.error.noKey': 'AI Demo feature is disabled. Full demo available during the audit.'
             },
             'nl': {
                 'header.cta': 'Boek Sales Audit',
@@ -425,7 +427,8 @@
                 'gemini.p2.system': 'U bent een B2B-salesstrateeg van wereldklasse, Matt Majak. U bent gespecialiseerd in psychologie (NLP, DISC). Uw toon is gezaghebbend en toch empathisch. U genereert korte openingsscripts van 2-3 zinnen (cold call/email) voor de opgegeven branche, gericht op het opbouwen van direct vertrouwen en een \'pattern interrupt\'. Spreek Nederlands.',
                 'gemini.p2.user': 'Mijn branche is: {industry}. Creëer voor mij een sterk openingsscript van 2-3 zinnen voor een potentiële klant.',
                 'gemini.p3.system': 'U bent Matt Majak, een B2B Sales Strateeg & Closer van wereldklasse. De gebruiker vertelt u hun grootste verkoopprobleem. Uw taak is om in 1-2 zinnen de waarschijnlijke oorzaak te diagnosticeren (gebaseerd op psychologie, proces of mentaliteit) en te eindigen met een sterke call-to-action van 1 zin om dit in een audit te bespreken. Uw toon is gezaghebbend, inzichtelijk en wekt vertrouwen. Spreek Nederlands.',
-                'gemini.p3.user': 'Mijn grootste verkoopprobleem is: "{problem}". Diagnoseer dit en geef een aanbeveling.'
+                'gemini.p3.user': 'Mijn grootste verkoopprobleem is: "{problem}". Diagnoseer dit en geef een aanbeveling.',
+                'gemini.error.noKey': 'AI-demofunctie is uitgeschakeld. Volledige demo beschikbaar tijdens de audit.'
             }
         };
 
@@ -524,6 +527,15 @@
         }
 
         async function handleGenerateScript() {
+            const apiKey = ""; // Klucz API zostanie dostarczony przez środowisko
+            
+            if (apiKey === "") {
+                outputPre.textContent = translations[currentLang]['gemini.error.noKey'];
+                resultView.classList.remove('hidden');
+                loader.classList.add('hidden');
+                return;
+            }
+
             const industry = industryInput.value.trim();
             if (!industry) {
                 outputPre.textContent = "Proszę wpisać branżę, aby AI mogło zadziałać."; // To też można by przenieść do translations
@@ -538,7 +550,6 @@
             const systemPrompt = translations[currentLang]['gemini.p2.system'];
             const userQuery = translations[currentLang]['gemini.p2.user'].replace('{industry}', industry);
 
-            const apiKey = ""; // Klucz API zostanie dostarczony przez środowisko
             const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
 
             const payload = {
@@ -579,6 +590,15 @@
         }
 
         async function handleGenerateObjection() {
+            const apiKey = ""; // Klucz API zostanie dostarczony przez środowisko
+
+            if (apiKey === "") {
+                objectionOutputPre.textContent = translations[currentLang]['gemini.error.noKey'];
+                objectionResultView.classList.remove('hidden');
+                objectionLoader.classList.add('hidden');
+                return;
+            }
+
             const objection = objectionInput.value.trim();
             if (!objection) {
                 objectionOutputPre.textContent = "Proszę wpisać obiekcję klienta, aby AI mogło zadziałać.";
@@ -593,7 +613,6 @@
             const systemPrompt = translations[currentLang]['gemini.p1.system'];
             const userQuery = translations[currentLang]['gemini.p1.user'].replace('{objection}', objection);
             
-            const apiKey = ""; // Klucz API zostanie dostarczony przez środowisko
             const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
 
             const payload = {
@@ -634,6 +653,15 @@
         }
 
         async function handleAnalyzeProblem() {
+            const apiKey = ""; // Klucz API zostanie dostarczony przez środowisko
+
+            if (apiKey === "") {
+                problemOutputPre.textContent = translations[currentLang]['gemini.error.noKey'];
+                problemResultView.classList.remove('hidden');
+                problemLoader.classList.add('hidden');
+                return;
+            }
+
             const problem = problemInput.value.trim();
             if (!problem) {
                 problemOutputPre.textContent = "Proszę opisać swój problem, abym mógł go przeanalizować.";
@@ -648,7 +676,6 @@
             const systemPrompt = translations[currentLang]['gemini.p3.system'];
             const userQuery = translations[currentLang]['gemini.p3.user'].replace('{problem}', problem);
 
-            const apiKey = ""; // Klucz API zostanie dostarczony przez środowisko
             const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
 
             const payload = {
